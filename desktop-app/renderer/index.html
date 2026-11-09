@@ -4,26 +4,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:;"
+  >
 
   <title>Drone Control System</title>
-
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <main class="welcome">
-    <div class="status">SYSTEM INITIALIZED</div>
+  <div class="app-container">
 
-    <h1>DRONE CONTROL SYSTEM</h1>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">D</div>
+        <div>
+          <h2>DRONE<span>CORE</span></h2>
+          <small>GROUND CONTROL</small>
+        </div>
+      </div>
 
-    <p>Ground Control Station</p>
+      <div class="nav-label">MAIN MENU</div>
 
-    <div class="connection">
-      <span class="indicator"></span>
-      Desktop Application Running
-    </div>
+      <nav class="navigation">
+        <a class="nav-item active" href="#overview">
+          <span>▦</span> Overview
+        </a>
+        <a class="nav-item" href="#fleet">
+          <span>◈</span> My Drones
+        </a>
+        <a class="nav-item" href="#camera">
+          <span>▣</span> Live Camera
+        </a>
+        <a class="nav-item" href="#map">
+          <span>◎</span> GPS Map
+        </a>
+        <a class="nav-item" href="#activity">
+          <span>◷</span> Flight Logs
+        </a>
+      </nav>
 
-    <p id="app-version"></p>
-  </main>
+      <div class="sidebar-bottom">
+        <div class="nav-label">SYSTEM</div>
+        <a class="nav-item" href="#settings">
+          <span>⚙</span> Settings
+        </a>
+
+        <div class="profile">
+          <div class="avatar">OP</div>
+          <div>
+            <strong>Operator</strong>
+            <small>Local session</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <h1>Ground Control Station</h1>
+          <p>Drone monitoring and management dashboard</p>
+        </div>
+
+        <div class="topbar-right">
+          <div class="demo-badge">DEMO MODE</div>
+          <div class="connection-status">
+            <span class="status-dot"></span>
+            Offline
+          </div>
+          <div class="clock" id="clock">--:--:--</div>
+        </div>
+      </header>
+
+      <section class="dashboard" id="overview">
+
+        <div class="section-heading">
+          <div>
+            <h2>Flight Overview</h2>
+            <p>Demonstration telemetry · Not connected to a drone</p>
+          </div>
+          <div class="drone-selector">
+            <span>Selected Drone</span>
+            <strong>Not registered</strong>
+          </div>
+        </div>
+
+        
+      <!-- Main Flight Layout -->
+      <div class="flight-layout">
+      
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+        
+          <!-- GPS MAP -->
+          <section class="panel map-panel" id="map">
+            <div class="panel-header">
+              <div>
+                <h3>GPS Location</h3>
+                <p>Drone position overview</p>
+              </div>
+              <span class="panel-tag">NO GPS</span>
+            </div>
+          
+            <div class="map-screen">
+              <div class="map-placeholder">
+                <span>◎</span>
+                <h3>Map Unavailable</h3>
+                <p>Waiting for GPS coordinates</p>
+              </div>
+              <div class="map-coordinates">
+                LAT: -- <br>
+                LON: --
+              </div>
+            </div>
+          </section>
+        
+          <!-- DRONE STATISTICS -->
+          <section class="panel" id="statistics">
+            <div class="panel-header">
+              <div>
+                <h3>Drone Statistics</h3>
+                <p>Live telemetry overview</p>
+              </div>
+              <span class="panel-tag">NO DATA</span>
+            </div>
+          
+            <div class="stats-grid">
+            
+              <article class="stat-card">
+                <span>BATTERY</span>
+                <strong>-- <small>%</small></strong>
+              </article>
+            
+              <article class="stat-card">
+                <span>ALTITUDE</span>
+                <strong>-- <small>m</small></strong>
+              </article>
+            
+              <article class="stat-card">
+                <span>SPEED</span>
+                <strong>-- <small>m/s</small></strong>
+              </article>
+            
+              <article class="stat-card">
+                <span>GPS SATELLITES</span>
+                <strong>--</strong>
+              </article>
+            
+            </div>
+          </section>
+        
+          <!-- NETWORK STATUS -->
+          <section class="panel" id="network">
+            <div class="panel-header">
+              <div>
+                <h3>Network Status</h3>
+                <p>Drone communication link</p>
+              </div>
+              <span class="panel-tag">OFFLINE</span>
+            </div>
+          
+            <div class="network-list">
+              <div class="network-row">
+                <span>Connection</span>
+                <strong>Disconnected</strong>
+              </div>
+              <div class="network-row">
+                <span>Network type</span>
+                <strong>--</strong>
+              </div>
+              <div class="network-row">
+                <span>Signal strength</span>
+                <strong>--</strong>
+              </div>
+              <div class="network-row">
+                <span>Latency</span>
+                <strong>-- ms</strong>
+              </div>
+            </div>
+          </section>
+        
+        </div>
+      
+        <!-- RIGHT COLUMN: FULL HEIGHT CAMERA -->
+        <section class="panel camera-panel" id="camera">
+        
+          <div class="panel-header">
+            <div>
+              <h3>Live Camera Feed</h3>
+              <p>Onboard camera preview</p>
+            </div>
+            <span class="panel-tag">NO SIGNAL</span>
+          </div>
+        
+          <div class="camera-screen">
+            <div class="camera-placeholder">
+              <div class="camera-symbol">▣</div>
+              <h3>Camera Offline</h3>
+              <p>Video feed will appear here</p>
+              <small>WebRTC integration planned</small>
+            </div>
+          
+            <span class="camera-overlay">CAM 01 · DEMO</span>
+          </div>
+        
+        </section>
+      
+      </div>
+      
+      <!-- ACTIVITY HISTORY -->
+      <section class="panel activity-panel" id="activity">
+        <div class="panel-header">
+          <div>
+            <h3>Recent Activity</h3>
+            <p>System event history</p>
+          </div>
+        </div>
+      
+        <div class="activity-list">
+          <div class="activity-item">
+            <span class="activity-indicator"></span>
+            <div>
+              <strong>Application started</strong>
+              <small>Desktop control station initialized</small>
+            </div>
+          </div>
+        
+          <div class="activity-item">
+            <span class="activity-indicator"></span>
+            <div>
+              <strong>Demo mode active</strong>
+              <small>No physical drone connected</small>
+            </div>
+          </div>
+        
+          <div class="activity-item">
+            <span class="activity-indicator"></span>
+            <div>
+              <strong>Communication pending</strong>
+              <small>Server integration not configured</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
 
   <script src="js/renderer.js"></script>
 </body>

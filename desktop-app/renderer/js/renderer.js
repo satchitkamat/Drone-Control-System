@@ -1,7 +1,18 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const versionElement = document.getElementById("app-version");
+  const clock = document.getElementById("clock");
 
-  versionElement.textContent =
-    `${window.droneApp.getAppName()} | Version ${window.droneApp.getAppVersion()}`;
+  function updateClock() {
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("en-IN", {
+      hour12: false
+    });
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  console.log("Drone Control System dashboard loaded.");
+  console.log(window.droneApp.getAppName());
 });
