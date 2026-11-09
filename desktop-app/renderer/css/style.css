@@ -1,0 +1,60 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #10141d;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.status {
+  color: #8b9bb4;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 38px;
+  letter-spacing: 3px;
+}
+
+.welcome > p {
+  color: #9ca9bc;
+  margin-top: 15px;
+}
+
+.connection {
+  margin-top: 35px;
+  padding: 15px 25px;
+  background: #1b2635;
+  border: 1px solid #34445c;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.indicator {
+  width: 9px;
+  height: 9px;
+  background: #36d399;
+  border-radius: 50%;
+}
+
+#app-version {
+  font-size: 12px;
+  margin-top: 20px;
+}
