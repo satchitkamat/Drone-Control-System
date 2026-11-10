@@ -1,0 +1,250 @@
+
+:root {
+  --background: #0b1018;
+  --panel: #141e2b;
+  --border: #263547;
+  --text: #e7edf5;
+  --muted: #8291a5;
+  --accent: #8b9cff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 50% 40%, #1a2940 0%, transparent 45%),
+    var(--background);
+  color: var(--text);
+}
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 45px;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  background: #28345c;
+  color: #b7c2ff;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.brand h1 {
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.brand h1 span {
+  color: var(--accent);
+}
+
+.brand p {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.login-heading {
+  margin-bottom: 30px;
+}
+
+.login-heading h2 {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.login-heading p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #a9b6c8;
+  margin-bottom: 9px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 47px;
+  background: #0d1622;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  outline: none;
+  color: var(--text);
+  font-size: 13px;
+  padding: 0 13px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+}
+
+.form-group input::placeholder {
+  color: #617187;
+}
+
+/* Password input and eye button */
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 48px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+
+  background: transparent;
+  color: #8291a5;
+
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.toggle-password:hover {
+  background: rgba(139, 156, 255, 0.1);
+  color: #b7c2ff;
+}
+
+.toggle-password:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+/* Login button */
+
+button[type="submit"] {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 7px;
+  background: #6478e8;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #788bfa;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  min-height: 18px;
+  margin: 0 0 14px;
+  font-size: 11px;
+  color: #ff8585;
+}
+
+.login-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #45d6a0;
+}
+
+.version {
+  margin-top: 25px;
+  color: #64748b;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    padding: 25px;
+  }
+}

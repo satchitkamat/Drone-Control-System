@@ -647,3 +647,21 @@ footer {
     padding: 9px;
   }
 }
+.logout-button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #e06b6b;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.logout-button:hover {
+  background: rgba(224, 107, 107, 0.1);
+}
+
+.logout-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
